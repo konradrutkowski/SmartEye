@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">SmartEye</string>
+    <string name="method">Choose source</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_temp">temp</string>
+    <string name="title_activity_sharpening">Sharpness</string>
+    <string name="title_activity_color_up">ColorUP</string>
+    <string name="title_activity_brigthness">Brightness</string>
+    <string name="title_activity_gamm_correction">Gamma Correction</string>
+
+</resources>

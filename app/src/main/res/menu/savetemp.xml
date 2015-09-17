@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.konradrutkowski.smarteye.colorupactivity">
+
+    <item
+        android:id="@+id/menu_savetemp"
+        android:orderInCategory="200"
+        android:showAsAction="always"
+        android:title="Zastosuj"/>
+
+</menu>
