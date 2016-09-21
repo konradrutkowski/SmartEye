@@ -2,100 +2,104 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context=".Main">
+    tools:context=".activities.Main">
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/black"
         android:layout_marginBottom="60dp"
+        android:background="@color/black"
 
         android:contentDescription="heheszkowo"
 
         />
 
-            <HorizontalScrollView
+    <HorizontalScrollView
 
-                android:id="@+id/hsv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fillViewport="true"
-                android:layout_alignParentBottom="true"
-                android:scrollbars="none" >
-                <RelativeLayout
-                    android:background="@color/divider"
-                    android:orientation="horizontal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="60dp"
+        android:id="@+id/hsv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:fillViewport="true"
+        android:scrollbars="none">
 
-                    >
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:background="@color/divider"
+            android:orientation="horizontal"
+
+            >
+
             <Button
                 android:id="@+id/b1"
-                android:background="@color/bars"
-                android:textColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginRight="1dp"
+                android:background="@color/bars"
                 android:onClick="Brightness"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
+                android:text="Jasność"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/b2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_marginRight="1dp"
-                android:text="Jasność"/>
-                <Button
-                    android:id="@+id/b2"
-                    android:background="@color/bars"
-                    android:textColor="@color/white"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_toRightOf="@id/b1"
-                    android:onClick="Sharp"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:layout_marginRight="1dp"
-                    android:text="Wyostrzanie" />
+                android:layout_toRightOf="@id/b1"
+                android:background="@color/bars"
+                android:onClick="Sharp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Wyostrzanie"
+                android:textColor="@color/white" />
 
 
-                    <Button
-                    android:id="@+id/b3"
-                    android:background="@color/bars"
-                    android:textColor="@color/white"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_toRightOf="@id/b2"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
-                        android:layout_marginRight="1dp"
-                    android:text="Kolory"
-                    android:onClick="ColorUp"/>
-                <Button
+            <Button
+                android:id="@+id/b3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="1dp"
+                android:layout_toRightOf="@id/b2"
+                android:background="@color/bars"
+                android:onClick="ColorUp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Kolory"
+                android:textColor="@color/white" />
 
-                    android:id="@+id/b4"
-                    android:background="@color/bars"
-                    android:textColor="@color/white"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_toRightOf="@id/b3"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:layout_marginRight="1dp"
-                    android:text="Rozmywanie"/>
+            <Button
 
-                    <Button
-                        android:id="@+id/b5"
+                android:id="@+id/b4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="1dp"
+                android:layout_toRightOf="@id/b3"
+                android:background="@color/bars"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Rozmywanie"
+                android:textColor="@color/white" />
 
-                        android:background="@color/bars"
-                        android:textColor="@color/white"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_toRightOf="@id/b4"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
-                        android:onClick="GammaCorrection"
-                        android:text="Kontrast"/>
-                </RelativeLayout>
-            </HorizontalScrollView>
-    </RelativeLayout>
+            <Button
+                android:id="@+id/b5"
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@id/b4"
+                android:background="@color/bars"
+                android:onClick="GammaCorrection"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Kontrast"
+                android:textColor="@color/white" />
+        </RelativeLayout>
+    </HorizontalScrollView>
+</RelativeLayout>
