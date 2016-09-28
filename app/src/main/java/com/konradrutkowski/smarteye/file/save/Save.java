@@ -3,7 +3,6 @@ package com.konradrutkowski.smarteye.file.save;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.Environment;
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.Toast;
 

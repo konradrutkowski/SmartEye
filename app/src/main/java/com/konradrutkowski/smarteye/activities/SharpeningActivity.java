@@ -18,7 +18,7 @@ import com.konradrutkowski.smarteye.tasks.PixelColorTask;
 
 public class SharpeningActivity extends BaseActivity {
     public static final int PLEASE_WAIT_DIALOG = 1;
-    static ImageView image;
+    ImageView image;
     Bitmap bmp;
     int tmp;
     private SeekBar seekBar;

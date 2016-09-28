@@ -5,7 +5,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,7 +16,7 @@ import com.konradrutkowski.smarteye.file.load.LoadImage;
 
 
 public class Main extends Activity {
-    static ImageView image;
+    ImageView image;
     Bitmap bmp;
     Boolean firstTime = true;
 
@@ -48,8 +47,8 @@ public class Main extends Activity {
     @Override
     protected void onStart() {
         super.onStart();
-        Log.d("MAIN", "ONSTART()");
-        Log.d("MAIN", PhotoURI.getURI());
+
+
         bmp = LoadImage.getBitmap(PhotoURI.getURI());
         image.setImageBitmap(bmp);
     }

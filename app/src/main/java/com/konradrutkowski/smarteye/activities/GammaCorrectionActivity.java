@@ -26,7 +26,7 @@ public class GammaCorrectionActivity extends BaseActivity {
         setContentView(R.layout.activity_seekbar);
         seekBar = (SeekBar) findViewById(R.id.seekBar);
         ActionBar actionBar = getActionBar();
-        actionBar.setBackgroundDrawable((ColorDrawable) getResources().getDrawable(R.drawable.bars));
+        actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.bars));
         actionBar.setDisplayOptions(ActionBar.DISPLAY_HOME_AS_UP
                 | ActionBar.DISPLAY_SHOW_TITLE | ActionBar.DISPLAY_SHOW_CUSTOM);
         image = (ImageView) findViewById(R.id.imageView);

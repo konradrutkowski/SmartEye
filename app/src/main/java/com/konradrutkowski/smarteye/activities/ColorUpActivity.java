@@ -7,7 +7,6 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.RadioButton;
@@ -66,17 +65,17 @@ public class ColorUpActivity extends BaseActivity {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (checkedId == (R.id.r)) {
-                    Log.d("ColorRGB: ", "1");
+
                     operationType = 1;
                     seekBar.setProgress(typeProgress1);
                 }
                 if (checkedId == (R.id.g)) {
-                    Log.d("ColorRGB: ", "2");
+
                     operationType = 2;
                     seekBar.setProgress(typeProgress2);
                 }
                 if (checkedId == (R.id.b)) {
-                    Log.d("ColorRGB: ", "3");
+
                     operationType = 3;
                     seekBar.setProgress(typeProgress3);
 
@@ -97,22 +96,22 @@ public class ColorUpActivity extends BaseActivity {
                 int prg = seekBar.getProgress();
                 if (operationType == 1) {
                     typeProgress1 = prg;
-                    Log.d("PROGRESSX", " 1 " + prg);
+
 
                 } else if (operationType == 2) {
                     typeProgress2 = prg;
-                    Log.d("PROGRESSX", " 2 " + prg);
+
                 } else if (operationType == 3) {
                     typeProgress3 = prg;
-                    Log.d("PROGRESSX", " 3 " + prg);
+
                 }
 
                 if (prg != tmp) {
                     tmp = prg;
-                    Log.d("HEHE", "PRG " + prg + "  OPTYPE " + operationType + "   prg " + prg);
+
                     //ColorUpTask t1 = new ColorUpTask(operationType,1.0f);
                     float hehe = (prg - 50) / 100.0f;
-                    Log.d("HEHE", "FLOAT HEHE " + hehe + "PRG " + prg + "  OPTYPE " + operationType + "   prg " + prg);
+
                     ColorUp t1 = new ColorUp(operationType, hehe);//prg-50/1000);
                     PixelColorTask taskPixel = new PixelColorTask(t1, bmp, image, ColorUpActivity.this);
                     taskPixel.execute();

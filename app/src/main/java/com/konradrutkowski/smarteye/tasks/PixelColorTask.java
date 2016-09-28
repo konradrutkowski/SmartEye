@@ -4,7 +4,6 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
-import android.util.Log;
 import android.widget.ImageView;
 
 import com.konradrutkowski.smarteye.instructions.PictureOperation;
@@ -23,7 +22,7 @@ public class PixelColorTask extends AsyncTask<PictureOperation, PictureOperation
 
     public PixelColorTask(PictureOperation pictureOperation, Bitmap bmp, ImageView imageView, Context ctx) {
         bmpRef = new WeakReference<>(bmp);
-        imageViewReference = new WeakReference<ImageView>(imageView);
+        imageViewReference = new WeakReference<>(imageView);
 
         dialog = new ProgressDialog(ctx);
         dialog.setCancelable(false);
@@ -42,7 +41,7 @@ public class PixelColorTask extends AsyncTask<PictureOperation, PictureOperation
     @Override
     protected Bitmap doInBackground(PictureOperation... params) {
         dialog.show();
-        Log.d("HEHE", "Zaczynam start");
+
         Bitmap bmp = bmpRef.get();
         if (bmp == null) {
             return null;

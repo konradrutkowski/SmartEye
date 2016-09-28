@@ -2,9 +2,7 @@ package com.konradrutkowski.smarteye.activities;
 
 import android.app.ActionBar;
 import android.graphics.Bitmap;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 
@@ -27,9 +25,12 @@ public class BrightnessActivity extends BaseActivity {
         setContentView(R.layout.activity_seekbar);
         seekBar = (SeekBar) findViewById(R.id.seekBar);
         ActionBar actionBar = getActionBar();
-        actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.bars));
-        actionBar.setDisplayOptions(ActionBar.DISPLAY_HOME_AS_UP
-                | ActionBar.DISPLAY_SHOW_TITLE | ActionBar.DISPLAY_SHOW_CUSTOM);
+        if (actionBar != null) {
+            actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.bars));
+
+            actionBar.setDisplayOptions(ActionBar.DISPLAY_HOME_AS_UP
+                    | ActionBar.DISPLAY_SHOW_TITLE | ActionBar.DISPLAY_SHOW_CUSTOM);
+        }
         image = (ImageView) findViewById(R.id.imageView);
         bmp = LoadImage.getBitmap(PhotoURI.getURI());
         image.setImageBitmap(bmp);
@@ -47,10 +48,10 @@ public class BrightnessActivity extends BaseActivity {
 
                 if (prg != tmp) {
                     tmp = prg;
-                    Log.d("HEHE", "PRG " + prg + "     prg " + prg);
+                    
                     //ColorUpTask t1 = new ColorUpTask(operationType,1.0f);
                     float value = (prg - 50) / 100.0f;
-                    Log.d("HEHE", "FLOAT HEHE " + value + "PRG " + prg + "     prg " + prg);
+                    
                     ColorUp t1 = new ColorUp(0, value);//prg-50/1000);
                     PixelColorTask taskPixel = new PixelColorTask(t1, bmp, image, BrightnessActivity.this);
                     taskPixel.execute();

@@ -7,7 +7,6 @@ import android.graphics.Color;
  * Created by Xooq on 2015-01-19.
  */
 public class Brightness extends PictureOperation {
-    ///Bitmap src;
     Bitmap bmp;
 
     int type;

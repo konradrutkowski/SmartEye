@@ -11,7 +11,7 @@ public class GammaCorrection extends PictureOperation {
     double red;
     double green;
     double blue;
-    
+
 
     public GammaCorrection(double red, double green, double blue) {
         this.red = red;

@@ -1,7 +1,6 @@
 package com.konradrutkowski.smarteye.activities;
 
 import android.app.Activity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
@@ -28,7 +27,7 @@ public abstract class BaseActivity extends Activity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_savetemp:
-                Log.d("ColorRGB: ", "3");
+
                 menuItem = item;
                 menuItem.expandActionView();
                 Save save = new Save(getImage(), this);

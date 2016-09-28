@@ -5,11 +5,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -37,9 +35,12 @@ public class ChooseActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.choose_activity);
         ActionBar actionBar = getActionBar();
-        actionBar.setBackgroundDrawable((ColorDrawable) getResources().getDrawable(R.drawable.bars));
-        actionBar.setDisplayOptions(
-                ActionBar.DISPLAY_SHOW_TITLE | ActionBar.DISPLAY_SHOW_CUSTOM);
+        if (actionBar != null) {
+            actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.bars));
+
+            actionBar.setDisplayOptions(
+                    ActionBar.DISPLAY_SHOW_TITLE | ActionBar.DISPLAY_SHOW_CUSTOM);
+        }
         //this.imageView = (ImageView) this.findViewById(R.id.imageView1);
         RelativeLayout galleryRelativeLayout = (RelativeLayout) this.findViewById(R.id.gallerybtn);
 
@@ -67,16 +68,18 @@ public class ChooseActivity extends Activity {
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == GALLERY_REQUEST && resultCode == RESULT_OK) {
-            Log.d("GALERIA", "GALERIANKI");
+
             Uri _uri = data.getData();
-            Log.d("GALERIA", "" + _uri);
+
 
             Cursor cursor = getContentResolver().query(_uri, new String[]{android.provider.MediaStore.Images.ImageColumns.DATA}, null, null, null);
             try {
-                cursor.moveToFirst();
-                final String imageFilePath = cursor.getString(0);
-                PhotoURI.setURI(imageFilePath);
-                cursor.close();
+                if (cursor != null) {
+                    cursor.moveToFirst();
+                    final String imageFilePath = cursor.getString(0);
+                    PhotoURI.setURI(imageFilePath);
+                    cursor.close();
+                }
             } catch (NullPointerException e) {
                 PhotoURI.setURI(_uri.getEncodedPath());
             }
@@ -87,9 +90,11 @@ public class ChooseActivity extends Activity {
             FileOutputStream fo;
             Bitmap bmp = (Bitmap) data.getExtras().get("data");
             ByteArrayOutputStream stream = new ByteArrayOutputStream();
-            bmp.compress(Bitmap.CompressFormat.PNG, 100, stream);
+            if (bmp != null) {
+                bmp.compress(Bitmap.CompressFormat.PNG, 100, stream);
+            }
             byte[] byteArray = stream.toByteArray();
-            Log.d("ZAPIS", "" + timeStamp);
+
             String uri = Environment.getExternalStorageDirectory() + "/kr" + timeStamp + ".png";
             try {
                 fo = new FileOutputStream(new File(uri));
@@ -97,7 +102,7 @@ public class ChooseActivity extends Activity {
                 fo.write(byteArray);
                 fo.flush();
                 fo.close();
-                Log.d("ZAPIS", "UDALO SIE");
+
             } catch (IOException e) {
                 Toast.makeText(this, "Nie można zapisać", Toast.LENGTH_SHORT).show();
             }
